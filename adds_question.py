@@ -111,7 +111,11 @@ class edits_que:
                 break
 
         line = "_".join(optns.values())
-        line = que+"_"+line+'\n'
+        line = que+"_"+line
+        set1 = []
+        for char in line:                       # Messes up(ciphers) data of the question and answer making unreadable
+            set1.append(chr(ord(char)+15))
+        line = "".join(set1)+"\n"
         self.file.write(line)
         self.file.close()
         self.add_que()                                                      # calls the same function to add question
