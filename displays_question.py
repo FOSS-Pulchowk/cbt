@@ -17,7 +17,7 @@ class display_question:
         self.roll = roll
         self.master = master
         self.n = n
-        self.lines = lines
+        self.lines = self.decrypt_lines(lines)
         name_label = tk.Label(self.master, text="Name: "+name,
                               font=("Ariel", 15, "bold"))
         name_label.pack(anchor='w')
@@ -27,13 +27,23 @@ class display_question:
         self.score = 0
         self.my_ans = ""
 
+    def decrypt_lines(self, lines):
+        "This function deciphers the data in file and gives off  clear line of question and answer."
+        for i in range(len(lines)):
+            lines[i] = lines[i].rstrip()
+            set1 = []
+            for char in lines[i]:
+                set1.append(chr(ord(char)-15))
+            lines[i] = "".join(set1)
+        return lines
+
     def display(self):
         "displays the question and  Radiobutton for options "
 
         self.frame = tk.Frame(self.master)
         self.frame.pack()
 
-        self.lines[self.n] = self.lines[self.n][:-1]
+        self.lines[self.n] = self.lines[self.n]
         ans = self.lines[self.n].split("_")
         que_label = tk.Label(self.frame, text=ans[0])
         que_label.pack()
