@@ -14,7 +14,7 @@ except:
     import tkinter.messagebox as msg
 
 class edits_que:
-    "A class to add questions and question files"
+    "A class to add questions to the existing files or create question files"
     def __init__(self, master):
         self.master = master
         self.frame1 = tk.Frame(master)
@@ -124,9 +124,9 @@ class edits_que:
         "function to kill the program"
 
         self.master.destroy()
-
-main_win = tk.Tk()
-main_win.geometry("1000x700")
-main_win.title("Adds question in CBT file")
-main = edits_que(main_win)                                          # implementation of class
-main_win.mainloop()
+if __name__ == "__main__":
+    main_win = tk.Tk()
+    main_win.geometry("1000x700")
+    main_win.title("Adds question in CBT file")
+    main = edits_que(main_win)                                          # implementation of class
+    main_win.mainloop()

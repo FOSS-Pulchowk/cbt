@@ -13,7 +13,7 @@ def read_questions(que_file,que_selection, student, roll_no):
     questions = file.readlines()                                # reads the files line by line & puts it in a list
     file.close()
 
-    final_cbt = dq(win,questions, student, roll_no)             # uses the class display_question
+    final_cbt = dq(win, questions, student, roll_no)             # uses the class display_question
     final_cbt.display()                                         # function to display questions from the class
 
 
@@ -34,7 +34,7 @@ def win2(newframe):
 
     for que_file in os.listdir():                               # to find all the files in  the directory
         if que_file.endswith(".dat"):                           # to find the files ending with .dat format
-            que_file = que_file.replace(".dat","")
+            que_file = que_file.replace(".dat", "")
             dat_file.append(que_file)                           # creates a list of the questions files for cbt
 
 
@@ -55,18 +55,18 @@ newframe.pack()
 
 welcome = tk.Label(newframe,
                    text= "WELCOME TO COMPUTER BASED TEST",
-                   font=("Times",20,"bold italic"))
+                   font=("Times", 20, "bold italic"))
 welcome.pack()
 
 label2 = tk.Label(newframe, text= "Enter your full name:",
-                  font=("Times",15,"bold"))
+                  font=("Times", 15, "bold"))
 label2.pack()
 
 username= tk.Entry(newframe)                                      # creates entry box for name of student
 username.pack()
 
 roll_label = tk.Label(newframe, text="Enter your Roll no.:",
-                      font=("Times",15,"bold"))
+                      font=("Times", 15, "bold"))
 roll_label.pack()
 
 roll_entry = tk.Entry(newframe)                                    # creates entry box for roll
